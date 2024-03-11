@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SectionContainer from "../components/SectionContainer.astro";
 ---
 
-<Layout title="Jenitzin." description="Hola Soy Jenitzin, me apasiona hablar de cine ">
+<Layout title={"Jenitzin."} description="Hola Soy Jenitzin, me apasiona hablar de cine ">
 	<main>
 		<SectionContainer class="py-44 pb-32">
 			<p class="text-gray-900 text-center">
@@ -11,6 +11,15 @@ import SectionContainer from "../components/SectionContainer.astro";
 				En este espacio encontrarás reseñas, recomendaciones y opiniones sobre todo lo que me gusta. 
 				Espero que disfrutes de este espacio tanto como yo disfruto escribiendo para ti.
 			</p>
+		</SectionContainer>
+		<SectionContainer>
+			<h1 class="text-gray-900">Mi blog de aprendizaje sobre Astro</h1>
+			<p class="text-gray-800">Aquí es donde publicaré acerca de mi viaje aprendiendo Astro.</p>
+			<ul>
+				<li><a class="text-gray-800" href="/posts/post-1/">Publicación 1</a></li>
+				<li><a class="text-gray-800" href="/posts/post-2/">Publicación 2</a></li>
+				<li><a class="text-gray-800" href="/posts/post-3/">Publicación 3</a></li>
+			</ul>
 		</SectionContainer>
 	</main>
 </Layout>

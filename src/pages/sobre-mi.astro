@@ -1,16 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
-
 ---
-<Layout title="Jenitzin." description="Hola Soy Jenitzin, me apasiona hablar de cine ">
-  <SectionContainer class="py-44 pb-32 text-gray-800">
-  <h1>Mi sitio Astro</h1>
-  <h1>Sobre mi</h1>
-  <h2>... ¡y mi nuevo sitio Astro!</h2>
 
-  <p>Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda página de mi sitio web, ¡y es la primera que he construido yo mismo!</p>
-
-  <p>Este sitio se irá actualizando a medida que vaya completando más partes del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!</p>
+<Layout
+  title="Sobre mí."
+  description="Hola Soy Jenitzin, me apasiona hablar de cine "
+>
+<SectionContainer class="py-44 pb-32 text-gray-800">
+  <div class="flex flex-col items-center justify-center">
+    <h1 class="text-4xl font-bold text-center">Sobre Mí</h1>
+  </div>
 </SectionContainer>
 </Layout>

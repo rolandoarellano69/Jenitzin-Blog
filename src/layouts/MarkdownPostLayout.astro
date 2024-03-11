@@ -1,0 +1,73 @@
+---
+import Hearder from "@/components/Hearder.astro";
+import Footer from "@/components/Footer.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+const { frontmatter } = Astro.props;
+const pageTitle = "Página de inicio";
+
+---
+<title>{pageTitle}</title>
+<body class="">
+  <div
+    class="absolute top-0 z-[-2] h-screen w-full bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+  >
+  </div>
+  <Hearder />
+  <SectionContainer>
+    <article class="pt-16 pb-24 md:pb-40">
+      <div class="">
+        <h1
+          class="text-3xl md:text-4xl font-semibold font-display"
+        >
+          {frontmatter.title}
+        </h1>
+
+        <time datetime={frontmatter.pubDate} class="text-sm text-stone-400"> {new Date(frontmatter.publishedAt).toLocaleDateString('es-MX', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}</time>
+
+        <p class="text-lg text-violet-800">
+          <em>{frontmatter.description}</em>
+        </p>
+        <p>Escrito por: {frontmatter.author}</p>
+
+        <img
+          src={frontmatter.image.url}
+          width="300"
+          alt={frontmatter.image.alt}
+        />
+        <slot />
+      </div>
+    </article>
+  </SectionContainer>
+  <Footer />
+</body>
+
+<style is:global>
+  @media (prefers-reduce-motion) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+	::-webkit-scrollbar {
+		width: 10px;
+		border-radius: 10px;
+	}
+	::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: grey;
+		border: 2px solid transparent;
+		background-clip: content-box;
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--background-image);
+	}
+
+	::-webkit-scrollbar-corner {
+		background: var(--background-image);
+	}
+
+</style>
