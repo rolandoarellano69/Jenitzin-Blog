@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionContainer from "../components/SectionContainer.astro";
+const allPosts = await Astro.glob('../pages/posts/*.md');
+
 ---
 
 <Layout title={"Jenitzin."} description="Hola Soy Jenitzin, me apasiona hablar de cine ">
@@ -13,12 +15,9 @@ import SectionContainer from "../components/SectionContainer.astro";
 			</p>
 		</SectionContainer>
 		<SectionContainer>
-			<h1 class="text-gray-900">Mi blog de aprendizaje sobre Astro</h1>
-			<p class="text-gray-800">Aquí es donde publicaré acerca de mi viaje aprendiendo Astro.</p>
-			<ul>
-				<li><a class="text-gray-800" href="/posts/post-1/">Publicación 1</a></li>
-				<li><a class="text-gray-800" href="/posts/post-2/">Publicación 2</a></li>
-				<li><a class="text-gray-800" href="/posts/post-3/">Publicación 3</a></li>
+			<h1 class="text-gray-900">Mis Reseñas</h1>
+			<ul class="border-[1px] px-4 py-8 rounded-lg mt-12 text-violet-800">
+				{allPosts.map((post) => <li><a class=" px-2 bg-violet-300 rounded-md" href={post.url}>{post.frontmatter.title}</a></li>)}
 			</ul>
 		</SectionContainer>
 	</main>
