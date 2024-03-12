@@ -6,20 +6,22 @@ const allPosts = await Astro.glob('../pages/posts/*.md');
 ---
 
 <Layout title={"Jenitzin."} description="Hola Soy Jenitzin, me apasiona hablar de cine ">
-	<main>
+	<main class="px-4">
 		<SectionContainer class="py-44 pb-32">
-			<p class="text-gray-900 text-center">
-				¡Hola! Soy Jenitzin, me apasiona hablar de cine, series, libros y música. 
-				En este espacio encontrarás reseñas, recomendaciones y opiniones sobre todo lo que me gusta. 
-				Espero que disfrutes de este espacio tanto como yo disfruto escribiendo para ti.
+			<h1 class="text-gray-800 text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-4">
+				Hola, Soy Jenitzin
+				<span class="text-violet-300">👋</span>
+			</h1>
+			<p class="text-gray-900 text-lg md:text-xl lg:text-2xl">
+				Me apasiona hablar de cine, series y libros. Aquí encontrarás mis reseñas y recomendaciones.
 			</p>
 		</SectionContainer>
-		<SectionContainer>
-			<h1 class="text-gray-900">Mis Reseñas</h1>
-			<ul class="border-[1px] px-4 py-8 rounded-lg mt-12 text-violet-800">
+		<SectionContainer >
+			<h2 class=" text-xl text-gray-800">Mis Reseñas</h2>
+			<ul class="">
 				{allPosts.map((post) => <li><a class=" px-2 bg-violet-300 rounded-md" href={post.url}>{post.frontmatter.title}</a></li>)}
 			</ul>
-		</SectionContainer>
+		</SectionContainer >
 	</main>
 </Layout>
 

@@ -2,18 +2,36 @@
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import BlogPost from "../components/BlogPost.astro";
-const allPosts = await Astro.glob('../pages/posts/*.md');
+const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
+
 <Layout
   title="Sobre mí."
   description="Hola Soy Jenitzin, me apasiona hablar de cine "
 >
-  <SectionContainer class="py-44 pb-32 text-gray-800">
+  <SectionContainer class=" text-gray-800">
     <div class="flex flex-col items-center justify-center">
       <h1 class="text-4xl font-bold text-center">Blog</h1>
     </div>
     <ul class="border-[1px] px-4 py-8 rounded-lg mt-12">
-      {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
+      {
+        allPosts.map((post) => (
+          <BlogPost
+            url={post.url}
+            title={post.frontmatter.title}
+            author={post.frontmatter.author}
+            pubDate={new Date(post.frontmatter.pubDate).toLocaleDateString(
+              "es-ES",
+              {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }
+            )}
+            description={post.frontmatter.description}
+          />
+        ))
+      }
     </ul>
   </SectionContainer>
 </Layout>
