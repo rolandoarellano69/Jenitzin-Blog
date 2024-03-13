@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionContainer from "../components/SectionContainer.astro";
+import BlogPost from "../components/BlogPost.astro";
 const allPosts = await Astro.glob('../pages/posts/*.md');
 
 ---
@@ -16,12 +17,31 @@ const allPosts = await Astro.glob('../pages/posts/*.md');
 				Me apasiona hablar de cine, series y libros. Aquí encontrarás mis reseñas y recomendaciones.
 			</p>
 		</SectionContainer>
-		<SectionContainer >
-			<h2 class=" text-xl text-gray-800">Mis Reseñas</h2>
-			<ul class="">
-				{allPosts.map((post) => <li><a class=" px-2 bg-violet-300 rounded-md" href={post.url}>{post.frontmatter.title}</a></li>)}
+		<SectionContainer class="text-gray-800 px-8">
+			<div class="flex flex-col items-center justify-center">
+				<h2 class="text-2xl font-bold text-center">Mis últimas Reseñas</h>
+			</div>
+			<ul class="border-[1px] px-4 py-8 rounded-lg mt-12">
+				{
+					allPosts.map((post) => (
+						<BlogPost
+							url={post.url}
+							title={post.frontmatter.title}
+							author={post.frontmatter.author}
+							pubDate={new Date(post.frontmatter.pubDate).toLocaleDateString(
+								"es-ES",
+								{
+									year: "numeric",
+									month: "long",
+									day: "numeric",
+								}
+							)}
+							description={post.frontmatter.description}
+						/>
+					))
+				}
 			</ul>
-		</SectionContainer >
+		</SectionContainer>
 	</main>
 </Layout>
 

@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: Tilín the movie
-author: Alumno de Astro
+author: Jenitzin
 description: "Tuve algunos problemas, pero preguntar en la comunidad me ayudó mucho."
 image:
     url: "https://docs.astro.build/assets/rays.webp"
